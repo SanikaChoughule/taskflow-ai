@@ -1,15 +1,46 @@
-# Virtual Environment
+# Virtual environments
 venv/
 .venv/
 env/
+backend/venv/
+backend/.venv/
+backend/env/
 
-# Secrets and Tokens (DO NOT PUSH THESE)
+# Secrets and tokens (DO NOT PUSH THESE)
 .env
+backend/.env
 credentials.json
+backend/credentials.json
 token.json
+backend/token.json
+
+# Databases and runtime data
+*.db
+backend/*.db
+backend/reminders.json
 
 # Python Cache
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
+
+# Build artifacts
+build/
+backend/build/
+*.egg-info/
+backend/*.egg-info/
+dist/
+backend/dist/
+
+# OS files
+Thumbs.db
+Desktop.ini
+desktop.ini
+~$*
+
+# Editor / IDE settings
+.vscode/
+.idea/
+.agents/
+skills-lock.json
