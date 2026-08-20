@@ -271,16 +271,42 @@ def post_action_undo(action_id: str, session_id: Optional[str] = Cookie(None)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to undo specific action: {str(e)}")
 
+def get_oauth_flow(redirect_uri: str, state: Optional[str] = None) -> Flow:
+    if CREDENTIALS_PATH.exists():
+        return Flow.from_client_secrets_file(
+            str(CREDENTIALS_PATH),
+            scopes=SCOPES,
+            redirect_uri=redirect_uri,
+            state=state
+        )
+    
+    secrets_json = os.getenv("GOOGLE_CLIENT_SECRETS_JSON")
+    if not secrets_json:
+        raise HTTPException(
+            status_code=500,
+            detail="Google OAuth credentials not configured. Please place credentials.json in the backend/ directory or set the GOOGLE_CLIENT_SECRETS_JSON environment variable."
+        )
+    try:
+        import json
+        client_config = json.loads(secrets_json)
+        return Flow.from_client_config(
+            client_config,
+            scopes=SCOPES,
+            redirect_uri=redirect_uri,
+            state=state
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load client config from environment: {str(e)}")
+
 @app.get("/api/auth/google")
 def auth_google(request: Request, login_hint: Optional[str] = None):
     host = request.headers.get("host", "localhost:8000")
     redirect_uri = f"http://{host}/oauth2callback"
+    if "onrender.com" in host or "railway.app" in host:
+        # Use HTTPS redirect for cloud environments
+        redirect_uri = f"https://{host}/oauth2callback"
     
-    flow = Flow.from_client_secrets_file(
-        str(CREDENTIALS_PATH),
-        scopes=SCOPES,
-        redirect_uri=redirect_uri
-    )
+    flow = get_oauth_flow(redirect_uri)
     
     authorization_url, state = flow.authorization_url(
         access_type='offline',
@@ -300,13 +326,11 @@ def oauth2callback(request: Request, code: str, state: Optional[str] = None, oau
     try:
         host = request.headers.get("host", "localhost:8000")
         redirect_uri = f"http://{host}/oauth2callback"
+        if "onrender.com" in host or "railway.app" in host:
+            # Use HTTPS redirect for cloud environments
+            redirect_uri = f"https://{host}/oauth2callback"
         
-        flow = Flow.from_client_secrets_file(
-            str(CREDENTIALS_PATH),
-            scopes=SCOPES,
-            redirect_uri=redirect_uri,
-            state=state
-        )
+        flow = get_oauth_flow(redirect_uri, state=state)
         
         # Exchange authorization code using the code verifier
         flow.fetch_token(code=code, code_verifier=oauth_code_verifier)
