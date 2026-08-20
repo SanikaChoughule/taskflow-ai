@@ -58,3 +58,32 @@ To verify that the application, database scheduler, conflict checkers, and undo 
 ```powershell
 venv\Scripts\python.exe test_core_features.py
 ```
+
+---
+
+## 🌐 Running the Live UI Locally from GitHub
+
+Since GitHub Pages only hosts static web pages and cannot execute a Python backend (FastAPI), you cannot host or preview the live interactive UI directly on GitHub (`github.io`).
+
+To run and view the live UI on your computer using the files from GitHub:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/SanikaChoughule/taskflow-ai.git
+   cd taskflow-ai/backend
+   ```
+
+2. **Configure Environment**:
+   * Create a `.env` file in the `backend/` directory with your `GEMINI_API_KEY`.
+   * Place your Google OAuth `credentials.json` file in the `backend/` directory.
+
+3. **Start the Backend & Server**:
+   ```powershell
+   python -m venv venv
+   .\venv\Scripts\activate
+   pip install -r requirements.txt
+   python -m uvicorn app.main:app --port 8000 --reload
+   ```
+
+4. **Access the UI**:
+   Open your browser and navigate to **[http://localhost:8000/](http://localhost:8000/)** (which automatically redirects to `/login` and then `/dashboard`).
