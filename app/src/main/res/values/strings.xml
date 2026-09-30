@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">TaskFlow AI</string>
+    <string name="app_tagline">One sentence in. Every step handled. Nothing forgotten.</string>
+    
+    <!-- General -->
+    <string name="cancel">Cancel</string>
+    <string name="execute">Execute</string>
+    <string name="undo">Undo</string>
+    <string name="save">Save</string>
+    <string name="done">Done</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="continue_as_guest">Continue as Guest</string>
+    
+    <!-- Command & AI -->
+    <string name="command_hint">Tell TaskFlow what you need...</string>
+    <string name="listening">Listening...</string>
+    <string name="transcribing">Transcribing...</string>
+    <string name="use_command">Use Command</string>
+    <string name="ready_to_execute">Ready to execute</string>
+    <string name="task_completed">Task completed successfully.</string>
+    
+    <!-- Permissions -->
+    <string name="mic_permission_rationale">TaskFlow AI uses the microphone to transcribe your voice commands directly into automated tasks.</string>
+    <string name="calendar_permission_rationale">Calendar access is required to check availability, detect conflicts, and schedule your events.</string>
+    <string name="notification_permission_rationale">Notification permissions allow TaskFlow AI to alert you before your meetings and remind you of deadlines.</string>
+</resources>

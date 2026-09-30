@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.taskflowai.CalendarAndUndoFlowTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-24T04:45:26" hostname="ROHAN6GAIKWAD" time="0.242">
+  <properties/>
+  <testcase name="test undo flow deletes event from calendar and records UNDONE in history" classname="com.taskflowai.CalendarAndUndoFlowTest" time="0.231"/>
+  <testcase name="test creating meeting adds to upcoming plans and generates calendar ID" classname="com.taskflowai.CalendarAndUndoFlowTest" time="0.006"/>
+  <testcase name="test initial upcoming plans contain pre-seeded events" classname="com.taskflowai.CalendarAndUndoFlowTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

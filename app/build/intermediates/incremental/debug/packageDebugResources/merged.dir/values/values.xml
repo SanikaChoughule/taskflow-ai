@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_amber">#F59E0B</color>
+    <color name="accent_cyan">#06B6D4</color>
+    <color name="accent_emerald">#10B981</color>
+    <color name="accent_rose">#EF4444</color>
+    <color name="accent_violet">#8B5CF6</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary">#2563EB</color>
+    <color name="primary_variant">#1D4ED8</color>
+    <color name="surface_dark">#0F172A</color>
+    <color name="surface_light">#F8FAFC</color>
+    <string name="app_name">TaskFlow AI</string>
+    <string name="app_tagline">One sentence in. Every step handled. Nothing forgotten.</string>
+    <string name="calendar_permission_rationale">Calendar access is required to check availability, detect conflicts, and schedule your events.</string>
+    <string name="cancel">Cancel</string>
+    <string name="command_hint">Tell TaskFlow what you need...</string>
+    <string name="continue_as_guest">Continue as Guest</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="done">Done</string>
+    <string name="execute">Execute</string>
+    <string name="get_started">Get Started</string>
+    <string name="listening">Listening...</string>
+    <string name="mic_permission_rationale">TaskFlow AI uses the microphone to transcribe your voice commands directly into automated tasks.</string>
+    <string name="next">Next</string>
+    <string name="notification_permission_rationale">Notification permissions allow TaskFlow AI to alert you before your meetings and remind you of deadlines.</string>
+    <string name="ready_to_execute">Ready to execute</string>
+    <string name="save">Save</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="skip">Skip</string>
+    <string name="task_completed">Task completed successfully.</string>
+    <string name="transcribing">Transcribing...</string>
+    <string name="undo">Undo</string>
+    <string name="use_command">Use Command</string>
+    <style name="Theme.TaskFlowAI" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/surface_dark</item>
+        <item name="android:windowBackground">@color/surface_dark</item>
+    </style>
+</resources>
