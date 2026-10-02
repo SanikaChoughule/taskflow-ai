@@ -1,17 +1,26 @@
+# Android / Gradle
 .gradle/
-.idea/
 build/
 */build/
 
+# Android Studio
+.idea/
+*.iml
+
+# Local Android configuration
 local.properties
 
+# Node
 node_modules/
 npm-debug.log*
 
+# Environment variables / secrets
 .env
 *.env
 
+# OS
 .DS_Store
 Thumbs.db
 
+# VS Code
 .vscode/
